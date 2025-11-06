@@ -1,7 +1,7 @@
 ﻿using MFFF;
 
-List<Line> lines = [new Line([new TextBox(text: "Hello", color: new Color(bgColor: Colors.Blue, textColor: Colors.Gray), effect: new TypeWriter(delay: 250)), 
-    new TextBox(text: " World!", color: new Color(bgColor: Colors.Gray, textColor: Colors.Blue))]), new Line([new TextBox(text: "This somehow works...", color: 
+List<Line> lines = [new Line([new TextBlock(text: "Hello", color: new Color(bgColor: Colors.Blue, textColor: Colors.Gray), effect: new TypeWriter(delay: 250)), 
+    new TextBlock(text: " World!", color: new Color(bgColor: Colors.Gray, textColor: Colors.Blue))]), new Line([new TextBlock(text: "This somehow works...", color: 
     new Color(bgColor: Colors.DarkRed, textColor: Colors.Yellow), effect: new TypeWriter(100))])];
 Display.Print(lines);
 
@@ -28,7 +28,7 @@ namespace MFFF
             line.PrintText();
         }
 
-        public static void Print(TextBox text)
+        public static void Print(TextBlock text)
         {
             // Print a single block of text to the Console
 
@@ -47,7 +47,7 @@ namespace MFFF
     {
         // Contains a series of blocks of text with different colors and effects constituting one overall line of text
 
-        public List<TextBox> Texts { get; set; } = new List<TextBox>();
+        public List<TextBlock> Texts { get; set; } = new List<TextBlock>();
 
         public void PrintText()
         {
@@ -62,18 +62,18 @@ namespace MFFF
 
         public Line() { }
 
-        public Line(TextBox text)
+        public Line(TextBlock text)
         {
             Texts.Add(text);
         }
 
-        public Line(List<TextBox> texts)
+        public Line(List<TextBlock> texts)
         {
             Texts.AddRange(texts);
         }
     }
 
-    public class TextBox
+    public class TextBlock
     {
         // Container class for storing and printing a homogenous section of text with a shared Color and Effect
 
@@ -99,7 +99,7 @@ namespace MFFF
         }
 
         
-        public TextBox(string? text = null, Color? color = null, Effect? effect = null)
+        public TextBlock(string? text = null, Color? color = null, Effect? effect = null)
         {
             Text = text ?? Text;
             Color = color ?? Color;
